@@ -1,0 +1,86 @@
+theory: null
+likelihood:
+  sn:
+    type: []
+    speed: -1
+    stop_at_error: false
+    version: null
+    external: import_module('likelihood').snlike
+    input_params:
+    - H0
+    - q0
+    - j0
+    - s0
+    output_params: []
+  cc:
+    type: []
+    speed: -1
+    stop_at_error: false
+    version: null
+    external: import_module('likelihood').cclike
+    input_params:
+    - H0
+    - q0
+    - j0
+    - s0
+    output_params: []
+params:
+  H0:
+    prior:
+      min: 60
+      max: 80
+    latex: H_0
+  q0:
+    prior:
+      min: -1
+      max: 1
+    latex: q_0
+  j0:
+    prior:
+      min: -20
+      max: 5
+    latex: j_0
+  s0:
+    prior:
+      min: -170
+      max: 10
+    latex: s_0
+sampler:
+  mcmc:
+    burn_in: 100
+    max_tries: 50000
+    covmat: null
+    covmat_params: null
+    proposal_scale: 2.4
+    output_every: 60s
+    learn_every: 40d
+    temperature: 1
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 2.0
+    learn_proposal_Rminus1_max_early: 30.0
+    learn_proposal_Rminus1_min: 0.0
+    max_samples: 50000
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    Rminus1_cl_level: 0.95
+    Rminus1_single_split: 4
+    measure_speeds: true
+    oversample_power: 0.4
+    oversample_thin: true
+    drag: false
+    blocking:
+    - - 1
+      - - H0
+        - q0
+        - j0
+        - s0
+    callback_function: null
+    callback_every: null
+    seed: null
+    check_every: null
+    oversample: null
+    drag_limits: null
+    fallback_covmat_scale: 4
+    version: 3.3.1
+output: sc
+version: 3.3.1
